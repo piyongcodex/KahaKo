@@ -31,7 +31,7 @@ namespace KahaKo
             builder.Services.AddSingleton<DatabaseService>();
             builder.Services.AddSingleton<AuthService>();
             builder.Services.AddTransient<ProductService>();
-            //builder.Services.AddTransient<TransactionService>();
+            builder.Services.AddTransient<TransactionService>();
 
             // Register ViewModels
             builder.Services.AddTransient<LoginViewModel>();
@@ -42,9 +42,10 @@ namespace KahaKo
             // Register Views
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<DashboardPage>();
-            //builder.Services.AddTransient<ProductManagementPage>();
+            builder.Services.AddTransient<ProductManagementPage>();
             builder.Services.AddTransient<SalesPage>();
 
+            return builder.Build();
         }
     }
 }
