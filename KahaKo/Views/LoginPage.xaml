@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KahaKo.Views.LoginPage"
+             Title="KahaKo.Login">
+
+
+    <Grid Padding="20" RowDefinitions="Auto,*,Auto">
+
+        <!-- Logo/Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="0,40,0,0">
+            <Label Text="POS System" 
+                   FontSize="32" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            <Label Text="Point of Sale" 
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <!-- Login Form -->
+        <VerticalStackLayout Grid.Row="1" 
+                           Spacing="15" 
+                           VerticalOptions="Center"
+                           MaximumWidthRequest="400">
+
+            <Entry Placeholder="Username"
+                   Text="{Binding Username}"
+                   FontSize="16"/>
+
+            <Entry Placeholder="Password"
+                   Text="{Binding Password}"
+                   IsPassword="True"
+                   FontSize="16"/>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="Red"
+                   IsVisible="{Binding HasError}"/>
+
+            <Button Text="Login"
+                    Command="{Binding LoginCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    HeightRequest="50"
+                    FontSize="18"/>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
