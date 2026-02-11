@@ -53,7 +53,9 @@ The application follows the **MVVM (Model–View–ViewModel)** design pattern t
 
 ## License
 
-© 2026 KahaKo POS System. All rights reserved.
+© 2026 KahaKo POS System
 
-This project is the intellectual property of the author.  
-Unauthorized copying, modification, distribution, or use of this software is prohibited without explicit permission.
+This is a personal project owned by the author.  
+The source code is provided for viewing and learning purposes only.
+
+Unauthorized copying, modification, distribution, or commercial use of this project is not permitted without prior written permission from the author.
