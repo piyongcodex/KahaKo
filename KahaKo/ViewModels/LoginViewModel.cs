@@ -42,7 +42,7 @@ namespace KahaKo.ViewModels
             if (user != null)
             {
                 // Navigate to dashboard
-                await Shell.Current.GoToAsync("//DashboardPage");
+                await Shell.Current.GoToAsync("//MainTabs");
             }
             else
             {
