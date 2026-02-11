@@ -2,49 +2,137 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KahaKo.Views.LoginPage"
-             Title="KahaKo.Login">
+             Title="Login"
+             BackgroundColor="#F5F5F5">
 
+    <ScrollView>
+        <VerticalStackLayout Padding="24,40,24,24"
+                            Spacing="0"
+                            VerticalOptions="Center">
 
-    <Grid Padding="20" RowDefinitions="Auto,*,Auto">
+            <!-- Login Card -->
+            <Border BackgroundColor="White"
+                    StrokeThickness="0"
+                    Padding="70"
+                    MaximumWidthRequest="400"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
 
-        <!-- Logo/Header -->
-        <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="0,40,0,0">
-            <Label Text="POS System" 
-                   FontSize="32" 
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"/>
-            <Label Text="Point of Sale" 
-                   FontSize="16"
-                   TextColor="Gray"
-                   HorizontalOptions="Center"/>
+                <Border.Shadow>
+                    <Shadow Brush="Black" 
+                            Opacity="0.1" 
+                            Radius="20" 
+                            Offset="0,4"/>
+                </Border.Shadow>
+
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="16"/>
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="24">
+
+                    <!-- Logo/Icon -->
+                    <Border BackgroundColor="#512BD4"
+                            WidthRequest="80"
+                            HeightRequest="80"
+                            HorizontalOptions="Center"
+                            StrokeThickness="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="40"/>
+                        </Border.StrokeShape>
+                        <Label Text="💳"
+                               FontSize="40"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Border>
+
+                    <!-- Title -->
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Welcome Back"
+                               FontSize="28"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               TextColor="#1A1A1A"/>
+                        <Label Text="Sign in to continue"
+                               FontSize="14"
+                               HorizontalOptions="Center"
+                               TextColor="#666666"/>
+                    </VerticalStackLayout>
+
+                    <!-- Form -->
+                    <VerticalStackLayout Spacing="16">
+
+                        <!-- Username -->
+                        <Border BackgroundColor="#F8F8F8"
+                                StrokeThickness="1"
+                                Stroke="#E0E0E0"
+                                Padding="16,12">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Entry Placeholder="Username"
+                                   Text="{Binding Username}"
+                                   FontSize="20"
+                                   BackgroundColor="Transparent"
+                                   PlaceholderColor="#999999"
+                                   TextColor="#1A1A1A"/>
+                        </Border>
+
+                        <!-- Password -->
+                        <Border BackgroundColor="#F8F8F8"
+                                StrokeThickness="1"
+                                Stroke="#E0E0E0"
+                                Padding="16,12">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12"/>
+                            </Border.StrokeShape>
+                            <Entry Placeholder="Password"
+                                   Text="{Binding Password}"
+                                   IsPassword="True"
+                                   FontSize="16"
+                                   BackgroundColor="Transparent"
+                                   PlaceholderColor="#999999"
+                                   TextColor="#1A1A1A"/>
+                        </Border>
+
+                        <!-- Error Message -->
+                        <Border BackgroundColor="#FFEBEE"
+                                Padding="12"
+                                IsVisible="{Binding HasError}"
+                                StrokeThickness="0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8"/>
+                            </Border.StrokeShape>
+                            <Label Text="{Binding ErrorMessage}"
+                                   TextColor="#C62828"
+                                   FontSize="14"/>
+                        </Border>
+
+                        <!-- Login Button -->
+                        <Button Text="Sign In"
+                                Command="{Binding LoginCommand}"
+                                BackgroundColor="#512BD4"
+                                TextColor="White"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                HeightRequest="56"
+                                CornerRadius="12"
+                                Margin="0,8,0,0"/>
+
+                    </VerticalStackLayout>
+
+                    <!-- Footer -->
+                    <Label Text="KahaKo POS v1.0"
+                           FontSize="12"
+                           TextColor="#999999"
+                           HorizontalOptions="Center"
+                           Margin="0,8,0,0"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
         </VerticalStackLayout>
+    </ScrollView>
 
-        <!-- Login Form -->
-        <VerticalStackLayout Grid.Row="1" 
-                           Spacing="15" 
-                           VerticalOptions="Center"
-                           MaximumWidthRequest="400">
-
-            <Entry Placeholder="Username"
-                   Text="{Binding Username}"
-                   FontSize="16"/>
-
-            <Entry Placeholder="Password"
-                   Text="{Binding Password}"
-                   IsPassword="True"
-                   FontSize="16"/>
-
-            <Label Text="{Binding ErrorMessage}"
-                   TextColor="Red"
-                   IsVisible="{Binding HasError}"/>
-
-            <Button Text="Login"
-                    Command="{Binding LoginCommand}"
-                    BackgroundColor="{StaticResource Primary}"
-                    TextColor="White"
-                    HeightRequest="50"
-                    FontSize="18"/>
-        </VerticalStackLayout>
-
-    </Grid>
 </ContentPage>
